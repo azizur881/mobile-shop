@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Mobile Shop</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+   <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+   <section>
+      <div class="container">
+         <div class="cart">
+            <div class="col-md-12 col-lg-10 mx-auto">
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item">
+                        <img src="images/product-1.png" alt="">
+                        <h5>iPhone 11 128GB Black</h5>
+                     </div>
+
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button class="btn btn-default" id="minusBtn"><i class="fas fa-minus"></i></button>
+                           <input type="text" class="form-control text-center" value="1" id ="amount1">
+                           <button class="btn btn-default " id="plusBtn"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <h5>$1219</h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item mx-auto">
+                        <img src="images/product-2.png" alt="">
+                        <h5>iPhone 11 Silicone Case - Black</h5>
+                     </div>
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button class="btn btn-default" id = "minusBtn2"><i class="fas fa-minus"></i></button>
+                           <input type="text" class="form-control text-center"id ="amount2" value="0">
+                           <button class="btn btn-default" id ="plusBtn2"><i class="fas fa-plus"></i></button>
+
+                        </div>
+                        <h5>$59</h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+
+                     <div class="col-md-8">
+                        <h5>Subtotal: </h5>
+                        <h5>Tax:</h5>
+                        <h5>Total:</h5>
+                     </div>
+
+                     <div class="col-md-4 status">
+                        <h5>$ <span id = 'subtotal'>1219</span> </h5>
+                        <h5>$0</h5>
+                        <h5>$ <span id = 'total'>59</span> </h5>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-12 pt-4 pb-4">
+                  <button type="button" class="btn btn-success check-out">Check Out</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <script>
+      //fist mobile plus btn/////////////////////
+      const plusBtn = document.getElementById('plusBtn')
+      plusBtn.addEventListener('click',function(){
+        
+         const amount1 =document.getElementById('amount1').value 
+          const amountNumber = parseFloat(amount1)
+
+          document.getElementById('amount1').value = amountNumber + 1;
+
+              // sub total plus
+          const subAmount = document.getElementById('subtotal').innerText
+          const subNumber = parseFloat(subAmount)
+          const subtotal = subNumber +  1219 
+          document.getElementById('subtotal').innerText = subtotal
+        
+         
+      })
+
+
+      //fist mobile minus btn///////////////////
+      const minusBtn = document.getElementById('minusBtn')
+      minusBtn.addEventListener('click',function(){
+        
+         const amount1 =document.getElementById('amount1').value 
+          const amountNumber = parseFloat(amount1)
+
+          document.getElementById('amount1').value = amountNumber - 1
+          if (amountNumber <1)
+          document.getElementById('amount1').value = 0;
+        
+            //  sub total minus
+          const subAmount2 = document.getElementById('subtotal').innerText
+          const subNumber2 = parseFloat(subAmount2)
+          const subtotal2 = subNumber2 - 1219 
+          document.getElementById('subtotal').innerText = subtotal2
+        
+      })
+      
+
+ //Second mobile plus btn/////////////////////
+ const plusBtn2 = document.getElementById('plusBtn2')
+      plusBtn2.addEventListener('click',function(){
+        
+         const amount2 =document.getElementById('amount2').value 
+          const amountNumber2 = parseFloat(amount2)
+
+          document.getElementById('amount2').value = amountNumber2 + 1;
+          const subAmount2 = document.getElementById('subtotal').innerText
+          const subNumber2 = parseFloat(subAmount2)
+          const subtotal2 = subNumber2 + 59 
+          document.getElementById('subtotal').innerText = subtotal2
+          
+      })
+
+
+      //Second mobile minus btn////////////////////
+      const minusBtn2 = document.getElementById('minusBtn2')
+      minusBtn2.addEventListener('click',function(){
+        
+         const amount2 =document.getElementById('amount2').value 
+          const amountNumber2 = parseFloat(amount2)
+
+          document.getElementById('amount2').value = amountNumber2 - 1
+          if (amountNumber2 <1)
+          document.getElementById('amount2').value = 0
+          const subAmount2 = document.getElementById('subtotal').innerText
+          const subNumber2 = parseFloat(subAmount2)
+          const subtotal2 = subNumber2 - 59 
+          document.getElementById('subtotal').innerText = subtotal2
+        
+         
+      })
+      
+      // function getSub(){
+      //   const mobileInput = document.getElementById("amount1").value
+      //   const mobileCount = parseFloat(mobileInput)
+
+      //   const caseInput = document.getElementById('amount2').value
+      //   const caseCount = parseFloat(caseCount)
+
+      //   const totalSub = mobileCount * 1219 + caseCount * 59
+      //   document.getElementById('subtotal').innerText = "totalSub"
+      // }
+
+   </script>
+</body>
+
+</html>
